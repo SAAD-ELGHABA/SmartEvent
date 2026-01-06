@@ -24,7 +24,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - name : Install Dependencies
-        working-directory: ./project-without-standalone-event
+        working-directory: project-without-standalone-event
         run: npm install
 
   test : 
@@ -40,5 +40,5 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Install Dependencies
-        working-directory: ./project-without-standalone-event
+        working-directory: project-without-standalone-event
         run: npm install
