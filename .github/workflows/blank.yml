@@ -27,13 +27,18 @@ jobs:
         working-directory: ./project-without-standalone-event
         run: npm install
 
-
-
   test : 
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run Tests
-        run: echo Running tests...
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install Dependencies
+        working-directory: ./project-without-standalone-event
+        run: npm install
